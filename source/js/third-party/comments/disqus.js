@@ -3,14 +3,29 @@
 document.addEventListener('page:loaded', () => {
 
   if (CONFIG.disqus.count) {
-    const loadCount = () => {
+    if (window.DISQUSWIDGETS) {
+      window.DISQUSWIDGETS.getCount();
+      // count-data.js does not reload when user revisit the same page
+      // So we need to manually call displayCount to update the count
+      window.DISQUSWIDGETS.displayCount({});
+    } else {
+      // Defer loading until the whole page loading is completed
       NexT.utils.getScript(`https://${CONFIG.disqus.shortname}.disqus.com/count.js`, {
-        attributes: { id: 'dsq-count-scr' }
+        attributes: { id: 'dsq-count-scr', defer: true }
+      }).then(() => {
+        let allCounts = [];
+        let defaultText;
+        const { displayCount } = window.DISQUSWIDGETS;
+        // Hook the original displayCount function to make it PJAX compatible
+        // It should take effect before the first count-data.js is loaded & evaluated
+        window.DISQUSWIDGETS.displayCount = function({ text, counts }) {
+          if (counts) allCounts = allCounts.concat(counts);
+          if (text) defaultText = text;
+          // Pass a clone of allCounts, because the original displayCount function will modify it
+          displayCount({ text: defaultText, counts: [...allCounts] });
+        };
       });
-    };
-
-    // defer loading until the whole page loading is completed
-    window.addEventListener('load', loadCount, false);
+    }
   }
 
   if (CONFIG.page.comments) {

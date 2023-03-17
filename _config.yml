@@ -11,7 +11,7 @@
 
 # Allow to cache content generation.
 cache:
-  enable: true
+  enable: false
 
 # Remove unnecessary files after hexo generate.
 minify: false
@@ -36,13 +36,13 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 # Dark Mode
-darkmode: false
+darkmode: true
 
 
 # ---------------------------------------------------------------
@@ -57,7 +57,7 @@ favicon:
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: #/uploads/custom-logo.png
+custom_logo: #/uploads/custom-logo.jpg
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/about/cclicenses/
@@ -66,24 +66,11 @@ creative_commons:
   license: by-nc-sa
   # Available values: big | small
   size: small
-  sidebar: false
-  post: false
+  sidebar: true
+  post: true
   # You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
   # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
-  language:
-
-# Open graph settings
-# See: https://hexo.io/docs/helpers#open-graph
-open_graph:
-  enable: true
-  options:
-    #twitter_card: <twitter:card>
-    #twitter_id: <twitter:creator>
-    #twitter_site: <twitter:site>
-    #twitter_image: <twitter:image>
-    #google_plus: <g+:profile_link>
-    #fb_admins: <fb:admin_id>
-    #fb_app_id: <fb:app_id>
+  language: deed.zh
 
 
 # ---------------------------------------------------------------
@@ -95,20 +82,27 @@ open_graph:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  #home: / || fa fa-home
-  #about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
-  #categories: /categories/ || fa fa-th
-  #archives: /archives/ || fa fa-archive
-  #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemap
-  #commonweal: /404/ || fa fa-heartbeat
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
+  archives: /archives/ || fa fa-archive
+  # schedule: /schedule/ || fa fa-calendar
+  sitemap: /sitemap.xml || fa fa-sitemap
+  # commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
   badges: false
 
+# TagCloud settings for tags page.
+tagcloud:
+  min: 12 # Minimum font size in px
+  max: 30 # Maximum font size in px
+  amount: 200 # Total amount of tags
+  orderby: name # Order of tags
+  order: 1 # Sort order
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -123,14 +117,14 @@ sidebar:
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
   # Pisces | Gemini: 240
-  #width: 300
+  width: 300
 
   # Sidebar Display (only for Muse | Mist), available values:
   #  - post    expand on posts automatically. Default.
   #  - always  expand for all pages automatically.
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  totally remove sidebar including sidebar toggle.
-  display: post
+  display: always
 
   # Sidebar padding in pixels.
   padding: 18
@@ -139,10 +133,10 @@ sidebar:
 
 # Sidebar Avatar
 avatar:
-  # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  # Replace the default image and set the url here. /images/avatar.gif
+  url: /images/avatar.jpg
   # If true, the avatar will be displayed in circle.
-  rounded: false
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -154,9 +148,10 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/buctllx || fab fa-github
+  E-Mail: ConorLuo:buctllx@163.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
+  #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
@@ -172,22 +167,28 @@ social_icons:
 # Blog rolls
 links_settings:
   icon: fa fa-globe
+  title: Links
   # Available values: block | inline
   layout: block
 
 links:
-  #Title: https://example.com
+  Microsoft 技术文档: https://docs.microsoft.com/
+  Microsoft Blog: https://devblogs.microsoft.com/
+  廖雪峰的官方网站: https://www.liaoxuefeng.com/
+  Revit jeremy: http://jeremytammik.github.io/tbc/a/
+  MVP walterlv: https://blog.walterlv.com/
+  MVP 林德熙: https://blog.lindexi.com/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (nonsupport wrap expand_all).
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true
+  number: false
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: false
+  expand_all: true
   # Maximum heading depth of generated toc.
   max_depth: 6
 
@@ -198,11 +199,11 @@ toc:
 # ---------------------------------------------------------------
 
 # Show multilingual switcher in footer.
-language_switcher: false
+language_switcher: true
 
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
-  #since: 2021
+  since: 2018
 
   # Icon between year and copyright info.
   icon:
@@ -236,7 +237,7 @@ footer:
 # See: https://theme-next.js.org/docs/theme-settings/posts
 # ---------------------------------------------------------------
 
-# Use `description` in front-matter to specify post excerpt.
+# Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
 
 # Read more button
@@ -254,23 +255,25 @@ post_meta:
 
 # Post wordcount display settings
 # Dependencies: https://github.com/next-theme/hexo-word-counter
+# https://theme-next.js.org/docs/theme-settings/posts.html?highlight=word+count#Post-Wordcount
 symbols_count_time:
-  separated_meta: true
-  item_text_total: false
+  separated_meta: true # 字数统计和阅读时间 单独显示一行
+  item_text_total: true
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: false
+tag_icon: true
 
 # Donate (Sponsor) settings
 # Front-matter variable (nonsupport animation).
 reward_settings:
   # If true, a donate button will be displayed in every article by default.
-  enable: false
+  enable: true
   animation: false
+  #comment: Buy me a coffee
 
 reward:
-  #wechatpay: /images/wechatpay.png
-  #alipay: /images/alipay.png
+  wechatpay: /images/weixin.jpg
+  alipay: /images/alipay.jpg
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
 
@@ -279,14 +282,21 @@ reward:
 follow_me:
   #Twitter: https://twitter.com/username || fab fa-twitter
   #Telegram: https://t.me/channel_name || fab fa-telegram
-  #WeChat: /images/wechat_channel.png || fab fa-weixin
+  #WeChat: /images/wechat_channel.jpg || fab fa-weixin
   #RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
-# Dependencies: https://github.com/sergeyzwezdin/hexo-related-posts
+# Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
   enable: false
-  icon: fa fa-signs-post
+  title: # Custom header, leave empty to use the default one
+  display_in_home: false
+  params:
+    maxCount: 5
+    #PPMixingRate: 0.0
+    #isDate: false
+    #isImage: false
+    #isExcerpt: false
 
 # Post edit
 # Easily browse and edit blog source code online.
@@ -306,12 +316,12 @@ post_navigation: left
 # ---------------------------------------------------------------
 
 # TagCloud settings for tags page.
-tagcloud:
-  min: 12 # Minimum font size in px
-  max: 30 # Maximum font size in px
-  amount: 200 # Total amount of tags
-  orderby: name # Order of tags
-  order: 1 # Sort order
+# tagcloud:
+#   min: 12 # Minimum font size in px
+#   max: 30 # Maximum font size in px
+#   amount: 200 # Total amount of tags
+#   orderby: name # Order of tags
+#   order: 1 # Sort order
 
 # Google Calendar
 # Share your recent schedule to others via calendar page.
@@ -332,7 +342,7 @@ calendar:
 # See: https://theme-next.js.org/docs/theme-settings/miscellaneous
 # ---------------------------------------------------------------
 
-# Preload styles and preconnect CDN for fonts and plugins.
+# Preconnect CDN for fonts and plugins.
 # For more information: https://www.w3.org/TR/resource-hints/#preconnect
 preconnect: false
 
@@ -361,23 +371,23 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: stackoverflow-dark
+    light: atom-one-dark
+    dark: atom-one-dark
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: mac
 
 back2top:
   enable: true
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -401,8 +411,9 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/buctllx
+  title: Follow me on GitHub
 
 
 # ---------------------------------------------------------------
@@ -462,7 +473,7 @@ font:
 # See: https://theme-next.js.org/docs/theme-settings/seo
 # ---------------------------------------------------------------
 
-# If true, site-subtitle will be added to the title of index page.
+# If true, site-subtitle will be added to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
 index_with_subtitle: false
 
@@ -489,70 +500,24 @@ baidu_site_verification:
 
 
 # ---------------------------------------------------------------
-# Tags Settings
-# See: https://theme-next.js.org/docs/tag-plugins/
-# ---------------------------------------------------------------
-
-# Note tag (bootstrap callout)
-note:
-  # Note tag style values:
-  #  - simple    bootstrap callout old alert style. Default.
-  #  - modern    bootstrap callout new (v2-v3) alert style.
-  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
-  #  - disabled  disable all CSS styles import of note tag.
-  style: simple
-  icons: false
-  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
-  # Offset also applied to label tag variables. This option can work with disabled note tag.
-  light_bg_offset: 0
-
-# Tabs tag
-tabs:
-  # Make the nav bar of tabs with long content stick to the top.
-  sticky: false
-  transition:
-    tabs: false
-    labels: true
-
-# PDF tag
-# NexT will try to load pdf files natively, if failed, pdf.js will be used.
-# So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
-# Dependencies: https://github.com/next-theme/theme-next-pdf
-pdf:
-  enable: false
-  # Default height
-  height: 500px
-
-# Mermaid tag
-mermaid:
-  enable: false
-  # Available themes: default | dark | forest | neutral
-  theme:
-    light: default
-    dark: dark
-
-
-# ---------------------------------------------------------------
 # Third Party Plugins & Services Settings
 # See: https://theme-next.js.org/docs/third-party-services/
 # More plugins: https://github.com/next-theme/awesome-next
+# You may need to install the corresponding dependency packages
 # ---------------------------------------------------------------
 
-# ---------------------------------------------------------------
 # Math Formulas Render Support
-# See: https://theme-next.js.org/docs/third-party-services/math-equations
 # Warning: Please install / uninstall the relevant renderer according to the documentation.
+# See: https://theme-next.js.org/docs/third-party-services/math-equations
 # Server-side plugin: https://github.com/next-theme/hexo-filter-mathjax
-# ---------------------------------------------------------------
-
 math:
   # Default (false) will load mathjax / katex script on demand.
   # That is it only render those page which has `mathjax: true` in front-matter.
   # If you set it to true, it will load mathjax / katex script EVERY PAGE.
-  every_page: false
+  every_page: true
 
   mathjax:
-    enable: false
+    enable: true
     # Available values: none | ams | all
     tags: none
 
@@ -560,12 +525,6 @@ math:
     enable: false
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
-
-
-# ---------------------------------------------------------------
-# External Libraries
-# See: https://theme-next.js.org/docs/third-party-services/external-libraries
-# ---------------------------------------------------------------
 
 # Easily enable fast Ajax navigation on your website.
 # For more information: https://github.com/next-theme/pjax
@@ -575,7 +534,7 @@ pjax: false
 # For more information: https://fancyapps.com/fancybox/
 fancybox: false
 
-# Medium Zoom is a JavaScript library for zooming images like Medium.
+# A JavaScript library for zooming images like Medium.
 # Warning: Do not enable both `fancybox` and `mediumzoom`.
 # For more information: https://medium-zoom.francoischalifour.com
 mediumzoom: false
@@ -584,12 +543,12 @@ mediumzoom: false
 # For more information: https://apoorv.pro/lozad.js/demo/
 lazyload: false
 
-# Automatically insert whitespace between CJK and half-width characters.
+# Pangu Support
 # For more information: https://github.com/vinta/pangu.js
 # Server-side plugin: https://github.com/next-theme/hexo-pangu
 pangu: false
 
-# Prefetch links based on what is in the user's viewport.
+# Quicklink Support
 # For more information: https://getquick.link
 # Front-matter variable (nonsupport home archive).
 quicklink:
@@ -609,46 +568,6 @@ quicklink:
 
 
 # ---------------------------------------------------------------
-# Animation Settings
-# ---------------------------------------------------------------
-
-# Use Animate.css to animate everything.
-# For more information: https://animate.style
-motion:
-  enable: true
-  async: false
-  transition:
-    # All available transition variants: https://theme-next.js.org/animate/
-    menu_item: fadeInDown
-    post_block: fadeIn
-    post_header: fadeInDown
-    post_body: fadeInDown
-    coll_header: fadeInLeft
-    # Only for Pisces | Gemini.
-    sidebar: fadeInUp
-
-# Progress bar in the top during page loading.
-# For more information: https://github.com/CodeByZach/pace
-pace:
-  enable: false
-  # All available colors:
-  # black | blue | green | orange | pink | purple | red | silver | white | yellow
-  color: blue
-  # All available themes:
-  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
-  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
-  theme: minimal
-
-# Generate a ribbon in your website with HTML5 canvas.
-# For more information: https://github.com/hustcc/ribbon.js
-canvas_ribbon:
-  enable: false
-  size: 300 # The width of the ribbon
-  alpha: 0.6 # The transparency of the ribbon
-  zIndex: -1 # The display level of the ribbon
-
-
-# ---------------------------------------------------------------
 # Comments Settings
 # See: https://theme-next.js.org/docs/third-party-services/comments
 # ---------------------------------------------------------------
@@ -659,7 +578,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: gitalk
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -669,8 +588,8 @@ comments:
     #disqus:
     #  text: Load Disqus
     #  order: -1
-    #gitalk:
-    #  order: -2
+    gitalk:
+     order: -1
 
 # Disqus
 # For more information: https://disqus.com
@@ -697,8 +616,6 @@ changyan:
   enable: false
   appid:
   appkey:
-  # Show comments count
-  count: true
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -707,32 +624,33 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: false
-  github_id: # GitHub repo owner
-  repo: # Repository name to store issues
-  client_id: # GitHub Application Client ID
-  client_secret: # GitHub Application Client Secret
-  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  enable: true
+  github_id: buctllx # GitHub repo owner
+  repo: buctllx.github.io # Repository name to store issues
+  client_id: 399664b4b2082eb3e04e # GitHub Application Client ID
+  client_secret: e1aba7692c7cbfaae40cda40e368d9d63385bc6a # GitHub Application Client Secret
+  admin_user: buctllx # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-  language:
+  language: zh-CN
+  # labels: 'gitalk' # github issue 对应的issue标签（新建一个）
 
 # Utterances
 # For more information: https://utteranc.es
 utterances:
   enable: false
-  repo: user-name/repo-name # Github repository owner and name
+  repo: # Github repository name
   # Available values: pathname | url | title | og:title
   issue_term: pathname
   # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
   theme: github-light
 
 # Isso
-# For more information: https://isso-comments.de
+# For more information: https://posativ.org/isso/
 isso: # <data_isso>
 
 
@@ -740,6 +658,13 @@ isso: # <data_isso>
 # Post Widgets & Content Sharing Services
 # See: https://theme-next.js.org/docs/third-party-services/post-widgets
 # ---------------------------------------------------------------
+
+# Star rating support to each article.
+# To get your ID visit https://widgetpack.com
+rating:
+  enable: false
+  id:     # <app_id>
+  color:  "#fc6423"
 
 # AddThis Share. See: https://www.addthis.com
 # Go to https://www.addthis.com/dashboard to customize your tools.
@@ -771,31 +696,6 @@ growingio_analytics: # <project_id>
 # See: https://www.cloudflare.com/web-analytics/
 cloudflare_analytics:
 
-# Microsoft Clarity Analytics
-# See: https://clarity.microsoft.com/
-clarity_analytics: # <project_id>
-
-# Matomo Analytics
-# See: https://matomo.org/
-matomo:
-  enable: false
-  server_url: # https://www.example.com/
-  site_id: # <your site id>
-
-# Umami Analytics
-# See: https://umami.is/
-umami:
-  enable: false
-  script_url: # https://umami.example.com/script.js
-  website_id: # <your website id>
-
-# Plausible Analytics
-# See: https://plausible.io/
-plausible:
-  enable: false
-  script_url: # https://plausible.io/js/script.js
-  site_domain: # www.example.com
-
 # Show number of visitors of each article.
 # You can visit https://www.leancloud.cn to get AppID and AppKey.
 leancloud_visitors:
@@ -821,7 +721,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # For more information: http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
@@ -845,12 +745,12 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
   # Show top n results per article, show all results by setting to -1
-  top_n_per_article: 1
+  top_n_per_article: 3
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
@@ -867,8 +767,9 @@ local_search:
 chat:
   enable: false
   icon: fa fa-comment # Icon name in Font Awesome, set false to disable icon.
+  text: Chat # Button text, change it as you wish.
 
-# Chatra is a functional, easy to use piece of chat software for websites.
+# Chatra Support
 # For more information: https://chatra.com
 # Dashboard: https://app.chatra.io/settings/general
 chatra:
@@ -877,18 +778,102 @@ chatra:
   id: # Visit Dashboard to get your ChatraID
   #embed: # Unfinished experimental feature for developers. See: https://chatra.com/help/api/#injectto
 
-# Tidio is a powerful, all-in-one customer service tool.
+# Tidio Support
 # For more information: https://www.tidio.com
 # Dashboard: https://www.tidio.com/panel/dashboard
 tidio:
   enable: false
   key: # Public Key, get it from dashboard. See: https://www.tidio.com/panel/settings/developer
 
-# Gitter is a chat and networking platform.
+# Gitter Support
 # For more information: https://gitter.im
 gitter:
   enable: false
   room:
+
+
+# ---------------------------------------------------------------
+# Tags Settings
+# See: https://theme-next.js.org/docs/tag-plugins/
+# ---------------------------------------------------------------
+
+# Note tag (bootstrap callout)
+note:
+  # Note tag style values:
+  #  - simple    bootstrap callout old alert style. Default.
+  #  - modern    bootstrap callout new (v2-v3) alert style.
+  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
+  #  - disabled  disable all CSS styles import of note tag.
+  style: flat
+  icons: true
+  border_radius: 3 # 边界范围
+  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
+  # Offset also applied to label tag variables. This option can work with disabled note tag.
+  light_bg_offset: 0 # modern & flat 指定背景色
+
+# Tabs tag
+tabs:
+  # Make the nav bar of tabs with long content stick to the top.
+  sticky: false
+  transition:
+    tabs: false
+    labels: true
+
+# PDF tag
+# NexT will try to load pdf files natively, if failed, pdf.js will be used.
+# So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
+# Dependencies: https://github.com/next-theme/theme-next-pdf
+pdf:
+  enable: false
+  # Default height
+  height: 500px
+
+# Mermaid tag
+mermaid:
+  enable: false
+  # Available themes: default | dark | forest | neutral
+  theme:
+    light: default
+    dark: dark
+
+
+# ---------------------------------------------------------------
+# Animation Settings
+# ---------------------------------------------------------------
+
+# Use Animate.css to animate everything.
+# For more information: https://animate.style
+motion:
+  enable: true
+  async: false
+  transition:
+    # All available transition variants: https://theme-next.js.org/animate/
+    post_block: fadeIn
+    post_header: fadeInDown
+    post_body: fadeInDown
+    coll_header: fadeInLeft
+    # Only for Pisces | Gemini.
+    sidebar: fadeInUp
+
+# Progress bar in the top during page loading.
+# For more information: https://github.com/CodeByZach/pace
+pace:
+  enable: false
+  # All available colors:
+  # black | blue | green | orange | pink | purple | red | silver | white | yellow
+  color: blue
+  # All available themes:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: minimal
+
+# Canvas ribbon
+# For more information: https://github.com/hustcc/ribbon.js
+canvas_ribbon:
+  enable: false
+  size: 300 # The width of the ribbon
+  alpha: 0.6 # The transparency of the ribbon
+  zIndex: -1 # The display level of the ribbon
 
 
 # ---------------------------------------------------------------
@@ -898,22 +883,16 @@ gitter:
 
 vendors:
   # The CDN provider of NexT internal scripts.
-  # Available values: local | jsdelivr | unpkg | cdnjs | custom
+  # Available values: local | jsdelivr | unpkg | cdnjs
   # Warning: If you are using the latest master branch of NexT, please set `internal: local`
   internal: local
   # The default CDN provider of third-party plugins.
-  # Available values: local | jsdelivr | unpkg | cdnjs | custom
+  # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: cdnjs
-  # Custom CDN URL
-  # For example:
-  # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
-  # custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${cdnjs_file}
-  custom_cdn_url:
+  plugins: jsdelivr
 
 # Assets
 # Accelerate delivery of static files using a CDN
-# The js option is only valid when vendors.internal is local.
 css: css
 js: js
 images: images
